@@ -212,6 +212,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = BA4DMKLYJJ;
 						LastSwiftMigration = 1160;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -484,7 +485,7 @@
 			baseConfigurationReference = 63E9D3FF63A97898AA3B0451 /* Pods-JKAlertSwift_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BA4DMKLYJJ;
 				INFOPLIST_FILE = JKAlertSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -500,7 +501,7 @@
 			baseConfigurationReference = 634E9D269D25B783361D143B /* Pods-JKAlertSwift_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BA4DMKLYJJ;
 				INFOPLIST_FILE = JKAlertSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
