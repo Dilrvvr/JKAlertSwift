@@ -12,6 +12,45 @@ public class JKAlertBaseAlertView: JKAlertBaseView {
     // MARK:
     // MARK: - Public Methods
     
+    public enum JKAlertStyle : Int {
+        
+        /**
+         * none
+         * 该样式将默认为JKAlertStylePlain
+         */
+        case None = 0
+        
+        /**
+         * 面板
+         */
+        case Plain = 1
+        
+        
+        /** 列表 */
+        case ActionSheet = 2
+        
+        /**
+         * collectionView样式
+         * 该样式没有message，只有一个title
+         */
+        case CollectionSheet = 3
+        
+        /**
+         * HUD提示
+         * 该样式没有message，只有一个title
+         */
+        case HUD = 4
+        
+        /** 顶部通知 */
+        //case Notification = 5,
+        
+        /** 自定义 */
+        //case Custom = 6,
+        
+        /** 面板 */
+        //case Alert = 1
+    }
+    
     /**
      * 全屏背景view
      * 默认nil
