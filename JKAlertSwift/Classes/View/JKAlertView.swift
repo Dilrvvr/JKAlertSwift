@@ -12,7 +12,13 @@ public class JKAlertView: JKAlertBaseAlertView {
     // MARK:
     // MARK: - Public Methods
     
-    
+    /** 实例化 */
+    public class func alertView(title: String?, message: String?, style: JKAlertStyle) -> JKAlertView {
+        
+        let alertView = JKAlertView()
+        
+        return alertView
+    }
     
     // MARK:
     // MARK: - Public Property

@@ -3,9 +3,9 @@ use_frameworks!
 target 'JKAlertSwift_Example' do
   pod 'JKAlertSwift', :path => '../'
 
-  target 'JKAlertSwift_Tests' do
-    inherit! :search_paths
+  #target 'JKAlertSwift_Tests' do
+    #inherit! :search_paths
 
     
-  end
+  #end
 end
