@@ -10,45 +10,20 @@ import UIKit
 public class JKAlertBaseAlertView: JKAlertBaseView {
     
     // MARK:
+    // MARK: - Public Property
+    
+    /** 样式 */
+    public private(set) var style: JKAlertStyle = .none
+    
+    // MARK:
     // MARK: - Public Methods
     
-    public enum JKAlertStyle : Int {
+    /** 实例化 */
+    public class func alertView(title: String?, message: String?, style: JKAlertStyle) -> Self {
         
-        /**
-         * none
-         * 该样式将默认为JKAlertStylePlain
-         */
-        case None = 0
+        let alertView = Self.alertView(style: style)
         
-        /**
-         * 面板
-         */
-        case Plain = 1
-        
-        
-        /** 列表 */
-        case ActionSheet = 2
-        
-        /**
-         * collectionView样式
-         * 该样式没有message，只有一个title
-         */
-        case CollectionSheet = 3
-        
-        /**
-         * HUD提示
-         * 该样式没有message，只有一个title
-         */
-        case HUD = 4
-        
-        /** 顶部通知 */
-        //case Notification = 5,
-        
-        /** 自定义 */
-        //case Custom = 6,
-        
-        /** 面板 */
-        //case Alert = 1
+        return alertView
     }
     
     /**
@@ -83,6 +58,16 @@ public class JKAlertBaseAlertView: JKAlertBaseView {
     
     // MARK:
     // MARK: - Private Methods
+    
+    /** <#注释#> */
+    private class func alertView(style: JKAlertStyle) -> Self {
+        
+        let alertView = JKAlertView()
+        
+        alertView.style = style
+        
+        return alertView as! Self
+    }
     
     /** restoreFullBackgroundColor */
     internal func restoreFullBackgroundColor() {
@@ -170,4 +155,49 @@ public class JKAlertBaseAlertView: JKAlertBaseView {
         
         return button
     }()
+}
+
+// MARK:
+// MARK: - 类型定义
+
+extension JKAlertBaseAlertView {
+    
+    public enum JKAlertStyle : Int {
+        
+        /**
+         * none
+         * 该样式将默认为JKAlertStylePlain
+         */
+        case none = 0
+        
+        /**
+         * 面板
+         */
+        case plain = 1
+        
+        
+        /** 列表 */
+        case actionSheet = 2
+        
+        /**
+         * collectionView样式
+         * 该样式没有message，只有一个title
+         */
+        case collectionSheet = 3
+        
+        /**
+         * HUD提示
+         * 该样式没有message，只有一个title
+         */
+        case HUD = 4
+        
+        /** 顶部通知 */
+        //case notification = 5,
+        
+        /** 自定义 */
+        //case custom = 6,
+        
+        /** 面板 同plain */
+        case alert = 101
+    }
 }

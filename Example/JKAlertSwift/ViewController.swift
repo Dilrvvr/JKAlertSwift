@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
-        let alertView = JKAlertView(frame: view.bounds)
+        let alertView = JKAlertView.alertView(title: "123", message: "12", style: .plain)
         
         view.addSubview(alertView)
         
