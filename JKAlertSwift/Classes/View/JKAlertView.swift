@@ -12,13 +12,6 @@ public class JKAlertView: JKAlertBaseAlertView {
     // MARK:
     // MARK: - Public Methods
     
-    /** 实例化 */
-    public class func alertView(title: String?, message: String?, style: JKAlertStyle) -> JKAlertView {
-        
-        let alertView = JKAlertView()
-        
-        return alertView
-    }
     
     // MARK:
     // MARK: - Public Property
@@ -58,16 +51,15 @@ public class JKAlertView: JKAlertBaseAlertView {
     // MARK:
     // MARK: - Private Methods
     
+    
+    // MARK:
+    // MARK: - Private Selector
+    
     override func dismissButtonClick(button: UIButton) {
         
         // TODO: - JKTODO delete
         super.dismissButtonClick(button: button)
     }
-    
-    // MARK:
-    // MARK: - Private Selector
-    
-    
     
     // MARK:
     // MARK: - Custom Delegates
