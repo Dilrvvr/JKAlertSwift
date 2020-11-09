@@ -17,7 +17,7 @@ public class JKAlertBaseView: UIView {
     // MARK:
     // MARK: - Public Property
     
-    public lazy var backgroundView: UIView = {
+    public private(set) lazy var backgroundView: UIView = {
         
         let backgroundView = UIView()
         backgroundView.isUserInteractionEnabled = false
@@ -26,7 +26,7 @@ public class JKAlertBaseView: UIView {
         return backgroundView
     }()
     
-    public lazy var contentView: UIView = {
+    public private(set) lazy var contentView: UIView = {
         
         let contentView = UIView()
         self.insertSubview(contentView, at: 1)
@@ -103,9 +103,9 @@ public class JKAlertBaseView: UIView {
     /** 布局UI 交给子类重写 super自动调用该方法 */
     internal func layoutUI() {
         
-        JKAlertVisualFormatConstraintManager.addZeroEdgeConstraints(targetView: backgroundView, constraintsView: self)
+        JKAlertConstraintManager.addZeroEdgeConstraints(targetView: backgroundView, constraintsView: self)
         
-        JKAlertVisualFormatConstraintManager.addZeroEdgeConstraints(targetView: contentView, constraintsView: self)
+        JKAlertConstraintManager.addZeroEdgeConstraints(targetView: contentView, constraintsView: self)
     }
     
     /** 初始化UI数据 交给子类重写 super自动调用该方法 */

@@ -40,7 +40,7 @@ public class JKAlertBaseAlertView: JKAlertBaseView {
             
             backgroundView.addSubview(view)
             
-            JKAlertVisualFormatConstraintManager.addZeroEdgeConstraints(targetView: view, constraintsView: backgroundView)
+            JKAlertConstraintManager.addZeroEdgeConstraints(targetView: view, constraintsView: backgroundView)
         }
         
         return self
@@ -123,7 +123,7 @@ public class JKAlertBaseAlertView: JKAlertBaseView {
     override func layoutUI() {
         super.layoutUI()
         
-        JKAlertVisualFormatConstraintManager.addZeroEdgeConstraints(targetView: dismissButton, constraintsView: contentView)
+        JKAlertConstraintManager.addZeroEdgeConstraints(targetView: dismissButton, constraintsView: contentView)
     }
     
     /** 初始化UI数据 交给子类重写 super自动调用该方法 */
