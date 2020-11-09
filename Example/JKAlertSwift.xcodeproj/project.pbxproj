@@ -157,10 +157,10 @@
 		5097D5B525590F1F00B00C98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5097D55C2558F96000B00C98 /* Main.storyboard */,
 				5097D55F2558F96100B00C98 /* Assets.xcassets */,
-				5097D5612558F96100B00C98 /* LaunchScreen.storyboard */,
 				5097D5642558F96100B00C98 /* Info.plist */,
+				5097D5612558F96100B00C98 /* LaunchScreen.storyboard */,
+				5097D55C2558F96000B00C98 /* Main.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
