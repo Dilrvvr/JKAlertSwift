@@ -25,6 +25,11 @@
 		5097D5E5255934B900B00C98 /* JKAlertSwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5097D5E2255934B900B00C98 /* JKAlertSwift.podspec */; };
 		5097D5E6255934B900B00C98 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5097D5E3255934B900B00C98 /* LICENSE */; };
 		5097D5E7255934B900B00C98 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5097D5E4255934B900B00C98 /* README.md */; };
+		50DA01F0259ADBE300EFF321 /* JKAlertBaseScrollContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA01EF259ADBE300EFF321 /* JKAlertBaseScrollContentView.swift */; };
+		50DA01F5259AE02700EFF321 /* JKAlertScrollContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA01F4259AE02700EFF321 /* JKAlertScrollContentView.swift */; };
+		50DA01FA259B2C2900EFF321 /* JKAlertBaseAlertContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA01F9259B2C2900EFF321 /* JKAlertBaseAlertContentView.swift */; };
+		50DA0200259B2C9C00EFF321 /* JKAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA01FF259B2C9C00EFF321 /* JKAlertAction.swift */; };
+		50DA0209259B363800EFF321 /* JKAlertPlainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA0208259B363800EFF321 /* JKAlertPlainContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +74,11 @@
 		5097D5E2255934B900B00C98 /* JKAlertSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JKAlertSwift.podspec; path = ../../JKAlertSwift.podspec; sourceTree = "<group>"; };
 		5097D5E3255934B900B00C98 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
 		5097D5E4255934B900B00C98 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		50DA01EF259ADBE300EFF321 /* JKAlertBaseScrollContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertBaseScrollContentView.swift; sourceTree = "<group>"; };
+		50DA01F4259AE02700EFF321 /* JKAlertScrollContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertScrollContentView.swift; sourceTree = "<group>"; };
+		50DA01F9259B2C2900EFF321 /* JKAlertBaseAlertContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertBaseAlertContentView.swift; sourceTree = "<group>"; };
+		50DA01FF259B2C9C00EFF321 /* JKAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertAction.swift; sourceTree = "<group>"; };
+		50DA0208259B363800EFF321 /* JKAlertPlainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertPlainContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +190,7 @@
 		5097D5C025590FC700B00C98 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				50DA01FE259B2C9000EFF321 /* Model */,
 				5097D5C425590FC700B00C98 /* Base */,
 				5097D5C725590FC700B00C98 /* Utility */,
 				5097D5C125590FC700B00C98 /* View */,
@@ -190,9 +201,11 @@
 		5097D5C125590FC700B00C98 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				50DA0207259B361200EFF321 /* AlertPlain */,
 				5097D5C325590FC700B00C98 /* JKAlertTextView.swift */,
 				5097D5C225590FC700B00C98 /* JKAlertView.swift */,
 				505C8A732559619F0071B704 /* JKAlertTextContainerView.swift */,
+				50DA01F4259AE02700EFF321 /* JKAlertScrollContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +215,8 @@
 			children = (
 				5097D5C625590FC700B00C98 /* JKAlertBaseAlertView.swift */,
 				5097D5C525590FC700B00C98 /* JKAlertBaseView.swift */,
+				50DA01EF259ADBE300EFF321 /* JKAlertBaseScrollContentView.swift */,
+				50DA01F9259B2C2900EFF321 /* JKAlertBaseAlertContentView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -221,6 +236,22 @@
 			children = (
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		50DA01FE259B2C9000EFF321 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				50DA01FF259B2C9C00EFF321 /* JKAlertAction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		50DA0207259B361200EFF321 /* AlertPlain */ = {
+			isa = PBXGroup;
+			children = (
+				50DA0208259B363800EFF321 /* JKAlertPlainContentView.swift */,
+			);
+			path = AlertPlain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,12 +390,17 @@
 				5097D5CC25590FC800B00C98 /* JKAlertView.swift in Sources */,
 				5097D5CE25590FC800B00C98 /* JKAlertBaseView.swift in Sources */,
 				5097D55B2558F96000B00C98 /* ViewController.swift in Sources */,
+				50DA0200259B2C9C00EFF321 /* JKAlertAction.swift in Sources */,
 				5097D5572558F96000B00C98 /* AppDelegate.swift in Sources */,
 				5097D5D025590FC800B00C98 /* JKAlertCustomizer.swift in Sources */,
 				5097D5D125590FC800B00C98 /* JKAlertConstraintManager.swift in Sources */,
 				5097D5D225590FC800B00C98 /* JKAlertUtility.swift in Sources */,
+				50DA0209259B363800EFF321 /* JKAlertPlainContentView.swift in Sources */,
+				50DA01F5259AE02700EFF321 /* JKAlertScrollContentView.swift in Sources */,
+				50DA01F0259ADBE300EFF321 /* JKAlertBaseScrollContentView.swift in Sources */,
 				505C8A742559619F0071B704 /* JKAlertTextContainerView.swift in Sources */,
 				5097D5CF25590FC800B00C98 /* JKAlertBaseAlertView.swift in Sources */,
+				50DA01FA259B2C2900EFF321 /* JKAlertBaseAlertContentView.swift in Sources */,
 				5097D5CD25590FC800B00C98 /* JKAlertTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,6 +578,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BA4DMKLYJJ;
 				INFOPLIST_FILE = JKAlertSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -561,6 +598,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BA4DMKLYJJ;
 				INFOPLIST_FILE = JKAlertSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -24,7 +24,7 @@ public class JKAlertBaseView: UIView {
      */
     private(set) var autoAddBasicViews: Bool = true
     
-    /** backgroundView */
+    /// backgroundView
     public private(set) lazy var backgroundView: UIView = {
         
         let backgroundView = UIView()
@@ -34,7 +34,7 @@ public class JKAlertBaseView: UIView {
         return backgroundView
     }()
     
-    /** contentView */
+    /// contentView
     public private(set) lazy var contentView: UIView = {
         
         let contentView = UIView()
@@ -91,12 +91,12 @@ public class JKAlertBaseView: UIView {
     // MARK:
     // MARK: - Initialization & Build UI
     
-    /** 初始化自身属性 交给子类重写 super自动调用该方法 */
+    /// 初始化自身属性 交给子类重写 super自动调用该方法
     internal func initializeProperty() {
         
     }
     
-    /** 构造函数初始化时调用 注意调用super */
+    /// 构造函数初始化时调用 注意调用super
     internal func initialization() {
         
         initializeProperty()
@@ -105,7 +105,7 @@ public class JKAlertBaseView: UIView {
         initializeUIData()
     }
     
-    /** 创建UI 交给子类重写 super自动调用该方法 */
+    /// 创建UI 交给子类重写 super自动调用该方法
     internal func createUI() {
         
         if autoAddBasicViews {
@@ -115,7 +115,7 @@ public class JKAlertBaseView: UIView {
         }
     }
     
-    /** 布局UI 交给子类重写 super自动调用该方法 */
+    /// 布局UI 交给子类重写 super自动调用该方法
     internal func layoutUI() {
         
         if autoAddBasicViews {
@@ -126,7 +126,7 @@ public class JKAlertBaseView: UIView {
         }
     }
     
-    /** 初始化UI数据 交给子类重写 super自动调用该方法 */
+    /// 初始化UI数据 交给子类重写 super自动调用该方法
     internal func initializeUIData() {
         
     }

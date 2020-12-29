@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         
         let alertView = JKAlertView.alertView(title: "123", message: "12", style: .plain)
         
-        view.addSubview(alertView)
+        alertView.show()
         
         self.alertView = alertView
     }

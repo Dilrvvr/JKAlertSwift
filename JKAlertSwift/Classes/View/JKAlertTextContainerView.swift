@@ -19,18 +19,14 @@ class JKAlertTextContainerView: JKAlertBaseView {
     // MARK: - Public Methods
     
     /** 计算frame */
-    public func calculateTextFrame(contentWidth: CGFloat, minHeight: CGFloat, originY: CGFloat) -> CGRect {
+    public func calculateTextFrame(contentWidth: CGFloat, minHeight: CGFloat) -> CGRect {
         
-        var rect = textView.calculateTextFrame(maxWidth: contentWidth, minHeight: 0.0, originY: 0.0, superView: self)
+        var rect = textView.calculateTextFrame(maxWidth: contentWidth)
         
         if rect.size.height < minHeight {
             
             rect.size.height = minHeight
         }
-        
-        rect.origin.y = originY
-        
-        frame = rect
         
         return rect
     }
@@ -41,7 +37,7 @@ class JKAlertTextContainerView: JKAlertBaseView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        textView.center = CGPoint(x: frame.width * 0.5, y: frame.height * 0.5)
+        textView.center = CGPoint(x: bounds.width * 0.5, y: bounds.height * 0.5)
     }
     
     // MARK:
@@ -96,6 +92,7 @@ class JKAlertTextContainerView: JKAlertBaseView {
     // MARK: - Private Property
     
     override var autoAddBasicViews: Bool {
+        
         get {
             
             return false
