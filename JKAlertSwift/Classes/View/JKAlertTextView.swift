@@ -19,31 +19,21 @@ class JKAlertTextView: UITextView {
     // MARK: - Public Methods
     
     /** 计算frame */
-    public func calculateTextFrame(maxWidth: CGFloat, minHeight: CGFloat, originY: CGFloat, superView: UIView) -> CGRect {
+    public func calculateTextFrame(maxWidth: CGFloat) -> CGRect {
         
         if isHidden { return .zero }
         
-        var rect = frame
+        var size = sizeThatFits(CGSize(width: maxWidth, height: CGFloat.infinity))
+        size.width = maxWidth
         
-        rect.origin.y = originY
-        rect.size = sizeThatFits(CGSize(width: maxWidth, height: CGFloat.infinity))
-        rect.size.width = maxWidth
-        rect.size.height = ceil(rect.size.height)
+        var heightf = Float(size.height)
+        heightf = ceilf(heightf)
         
-        if (rect.size.height < minHeight) {
-            
-            textContainerInset = UIEdgeInsets(top: (minHeight - rect.size.height) * 0.5, left: 0.0, bottom: 0.0, right: 0.0)
-            
-            rect.size.height = minHeight
-            
-        } else {
-            
-            textContainerInset = .zero
-        }
+        let sizeHeight = CGFloat(heightf)
+        size.height = sizeHeight
         
-        frame = rect
-        
-        center.x = superView.frame.size.width * 0.5
+        var rect: CGRect = .zero
+        rect.size = size
         
         return rect
     }
@@ -53,7 +43,8 @@ class JKAlertTextView: UITextView {
     
     deinit {
         
-        print("[ClassName: \(type(of: self))], \(#line), \(type(of: self)).\(#function)")
+        // TODO: - JKTODO Delete
+        print("\(Date().addingTimeInterval(TimeInterval(NSTimeZone.system.secondsFromGMT()))), [ClassName: \(type(of: self))], \(#line), \(type(of: self)).\(#function)")
     }
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
@@ -83,7 +74,7 @@ class JKAlertTextView: UITextView {
             
         } else {
             
-            UIMenuController.shared .isMenuVisible = false
+            UIMenuController.shared.isMenuVisible = false
         }
         
         return false
@@ -99,7 +90,7 @@ class JKAlertTextView: UITextView {
         textAlignment = .center
         scrollsToTop = false
         isEditable = false
-        textContainer.lineFragmentPadding = 0
+        textContainer.lineFragmentPadding = 0.0
         textContainerInset = .zero
         showsHorizontalScrollIndicator = false
     }

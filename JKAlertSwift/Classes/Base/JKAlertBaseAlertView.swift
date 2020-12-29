@@ -59,7 +59,6 @@ public class JKAlertBaseAlertView: JKAlertBaseView {
     // MARK:
     // MARK: - Private Methods
     
-    /** <#注释#> */
     private class func alertView(style: JKAlertStyle) -> Self {
         
         let alertView = JKAlertView()
@@ -69,7 +68,6 @@ public class JKAlertBaseAlertView: JKAlertBaseView {
         return alertView as! Self
     }
     
-    /** restoreFullBackgroundColor */
     internal func restoreFullBackgroundColor() {
         
         backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
@@ -199,5 +197,18 @@ extension JKAlertBaseAlertView {
         
         /** 面板 同plain */
         case alert = 101
+    }
+    
+    /// sheet样式消失动画
+    public enum JKAlertSheetDismissAnimationType: Int {
+        
+        /// 滑向底部消失 默认
+        case toBottom = 0
+        
+        /// 向右滑动消失 →
+        case toRight = 1
+        
+        /// 向左滑动消失 ←
+        case toLeft = 2
     }
 }
