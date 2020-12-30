@@ -109,7 +109,15 @@ class JKAlertBaseAlertContentView: JKAlertBaseView {
     // MARK:
     // MARK: - Public Methods
     
+    /// calculateUI
+    public func calculateUI() {
+        
+    }
     
+    /// calculateUI
+    public func restoreAlertBackgroundColor() {
+        
+    }
     
     // MARK:
     // MARK: - Override
