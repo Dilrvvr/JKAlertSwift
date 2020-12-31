@@ -30,6 +30,8 @@
 		50DA01FA259B2C2900EFF321 /* JKAlertBaseAlertContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA01F9259B2C2900EFF321 /* JKAlertBaseAlertContentView.swift */; };
 		50DA0200259B2C9C00EFF321 /* JKAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA01FF259B2C9C00EFF321 /* JKAlertAction.swift */; };
 		50DA0209259B363800EFF321 /* JKAlertPlainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA0208259B363800EFF321 /* JKAlertPlainContentView.swift */; };
+		50DA0339259DC27F00EFF321 /* JKAlertThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA0338259DC27F00EFF321 /* JKAlertThemeManager.swift */; };
+		50DA0341259DC47000EFF321 /* JKAlertThemeUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA0340259DC47000EFF321 /* JKAlertThemeUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		50DA01F9259B2C2900EFF321 /* JKAlertBaseAlertContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertBaseAlertContentView.swift; sourceTree = "<group>"; };
 		50DA01FF259B2C9C00EFF321 /* JKAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertAction.swift; sourceTree = "<group>"; };
 		50DA0208259B363800EFF321 /* JKAlertPlainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertPlainContentView.swift; sourceTree = "<group>"; };
+		50DA0338259DC27F00EFF321 /* JKAlertThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertThemeManager.swift; sourceTree = "<group>"; };
+		50DA0340259DC47000EFF321 /* JKAlertThemeUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertThemeUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +194,7 @@
 		5097D5C025590FC700B00C98 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				50DA0337259DC25E00EFF321 /* Theme */,
 				50DA01FE259B2C9000EFF321 /* Model */,
 				5097D5C425590FC700B00C98 /* Base */,
 				5097D5C725590FC700B00C98 /* Utility */,
@@ -252,6 +257,15 @@
 				50DA0208259B363800EFF321 /* JKAlertPlainContentView.swift */,
 			);
 			path = AlertPlain;
+			sourceTree = "<group>";
+		};
+		50DA0337259DC25E00EFF321 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				50DA0338259DC27F00EFF321 /* JKAlertThemeManager.swift */,
+				50DA0340259DC47000EFF321 /* JKAlertThemeUtility.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,6 +416,8 @@
 				5097D5CF25590FC800B00C98 /* JKAlertBaseAlertView.swift in Sources */,
 				50DA01FA259B2C2900EFF321 /* JKAlertBaseAlertContentView.swift in Sources */,
 				5097D5CD25590FC800B00C98 /* JKAlertTextView.swift in Sources */,
+				50DA0339259DC27F00EFF321 /* JKAlertThemeManager.swift in Sources */,
+				50DA0341259DC47000EFF321 /* JKAlertThemeUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
