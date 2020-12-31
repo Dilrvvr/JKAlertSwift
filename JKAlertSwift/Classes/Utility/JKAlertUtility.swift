@@ -76,78 +76,63 @@ class JKAlertUtility: NSObject {
     /// 判断当前是否深色模式
     public class var isDarkMode: Bool {
         
-        // TODO: - JKTODO <#注释#>
-        return false
-        //return [[JKAlertThemeManager sharedManager] checkIsDarkMode]
+        return JKAlertThemeManager.shared.checkIsDarkMode()
     }
-
+    
     /// 全局背景色 浅色模式 rgb 247
-    public static let globalLightBackgroundColor: UIColor  = JKAlertSameRGBColor(247.0)
-
+    public static let globalLightBackgroundColor: UIColor = JKAlertSameRGBColor(247.0)
+    
     /// 全局背景色 深色模式 rgb 24
     public static let globalDarkBackgroundColor: UIColor = JKAlertSameRGBColor(24.0)
-
+    
     /// 背景色 浅色模式 rgb254
     public static let lightBackgroundColor: UIColor = JKAlertSameRGBColor(255.0)
-
+    
     /// 背景色 深色模式 rgb 30
     public static let darkBackgroundColor: UIColor = JKAlertSameRGBColor(30.0)
-
+    
     /// 高亮背景色 浅色模式 rgb 229
     public static let highlightedLightBackgroundColor: UIColor = JKAlertSameRGBColor(229.0)
-
+    
     /// 高亮背景色 深色模式 rgb 37.5
     public static let highlightedDarkBackgroundColor: UIColor = JKAlertSameRGBColor(37.5)
-
+    
     /// 全局分隔线粗细 1.0 / [UIScreen mainScreen].scale
     public static let separatorLineThickness: CGFloat = 1.0 / UIScreen.main.scale
-
+    
     /// 全局分隔线背景色 浅色模式 rgb 217
     public static let separatorLineLightColor: UIColor = JKAlertSameRGBColor(217.0)
-
+    
     /// 全局分隔线背景色 深色模式 rgb 53
     public static let separatorLineDarkColor: UIColor = JKAlertSameRGBColor(53.0)
     
     /// 是否iPad
     public static let isDeviceiPad: Bool = (UI_USER_INTERFACE_IDIOM() == .pad)
-
+    
     /// 是否X设备
     public class var isDeviceX: Bool {
         
         if isDeviceiPad {
-        
+            
             return false
         }
         
-        // TODO: - JKTODO <#注释#>
-        let isDeviceX_: Bool = true
+        if #available(iOS 11.0, *) {
+            
+            guard let _ = keyWindow else { return false }
+            
+            return keyWindow!.safeAreaInsets.bottom > 0.0
+        }
         
-        return isDeviceX_
+        return false
     }
-
-//        static BOOL isDeviceX_ = NO
-//
-//        static dispatch_once_t onceToken
-//        dispatch_once(&onceToken, ^{
-//
-//            if (@available(iOS 11.0, *)) {
-//
-//                if (!self.isDeviceiPad) {
-//
-//                    isDeviceX_ = self.keyWindow.safeAreaInsets.bottom > 0.0
-//                }
-//            }
-//        })
-//
-//        return isDeviceX_
-//    }
-
+    
     /// 当前是否横屏
     public class var isLandscape: Bool {
         
         return  UIScreen.main.bounds.width > UIScreen.main.bounds.height
     }
-
+    
     /// 当前HomeIndicator高度
     public class var currentHomeIndicatorHeight: CGFloat {
         
@@ -217,7 +202,6 @@ class JKAlertUtility: NSObject {
     /// 目前iPhone屏幕最大宽度
     public static let iPhoneMaxScreenWidth: CGFloat = 428.0
     
-
     /// 让手机振动一下
     public class func vibrateDevice() {
         
@@ -243,162 +227,74 @@ class JKAlertUtility: NSObject {
         }
     }
     
+    // TODO: - JKTODO <#注释#>
+    
     /*
-    /// 仅DEBUG下执行
-    + (void)debugExecute:(void (^)(void))executeBlock {
-    #if defined(DEBUG)
-        !executeBlock ? : executeBlock()
-    #endif
-    }
-
-    /// 在DEBUG/Develop下执行
-    + (void)debugDevelopExecute:(void (^)(void))executeBlock {
-    #if defined(DEBUG) || defined(CONFIGURATION_Develop)
-        !executeBlock ? : executeBlock()
-    #endif
-    }
-
-    /// 弹框展示debug信息
-    + (void)showDebugAlertWithTitle:(NSString *)title
-                            message:(NSString *)message
-                              delay:(NSTimeInterval)delay {
-    #if defined(DEBUG)
-        [self _showAlertWithTitle:title message:message delay:delay]
-    #endif
-    }
-
-    /// 弹框展示debug信息
-    + (void)showDebugDevelopAlertWithTitle:(NSString *)title
-                                   message:(NSString *)message
-                                     delay:(NSTimeInterval)delay {
-    #if defined(DEBUG) || defined(CONFIGURATION_Develop)
-        [self _showAlertWithTitle:title message:message delay:delay]
-    #endif
-    }
-
-    + (void)_showAlertWithTitle:(NSString *)title
-                        message:(NSString *)message
-                          delay:(NSTimeInterval)delay {
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            JKAlertView *alertView = [JKAlertView alertViewWithTitle:[@"JKDebug-" stringByAppendingString:(title ? title : @"")] message:[@"--- 此弹框仅用于调试 ---\n\n" stringByAppendingString:(message ? message : @"")] style:(JKAlertStyleAlert)]
-            
-            alertView.makeMessageAlignment(NSTextAlignmentLeft)
-            .makeTitleMessageShouldSelectText(YES)
-            .makePlainWidth([UIScreen mainScreen].bounds.size.width - 30.0)
-            .makeHudAutoReduceWidth(YES)
-            
-            [alertView addAction:[JKAlertAction actionWithTitle:@"Copy" style:(JKAlertActionStyleDefault) handler:^(JKAlertAction *action) {
-                
-                [UIPasteboard generalPasteboard].string = message
-            }]]
-            
-            [alertView addAction:[JKAlertAction actionWithTitle:@"OK" style:(JKAlertActionStyleDefault) handler:^(JKAlertAction *action) {
-                
-            }]]
-            
-            if (delay <= 0) {
-                
-                [alertView show]
-                
-                return
-            }
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                
-                [alertView show]
-            })
-        })
-    }
-    
-    
-    
-    
-    
-    
-    /// 判断当前是否深色模式
-    @property (class, nonatomic, readonly) BOOL isDarkMode
-
-    /// 全局背景色 浅色模式 rgb 247
-    @property (class, nonatomic, readonly) UIColor *globalLightBackgroundColor
-
-    /// 全局背景色 深色模式 rgb 24
-    @property (class, nonatomic, readonly) UIColor *globalDarkBackgroundColor
-
-    /// 背景色 浅色模式 rgb254
-    @property (class, nonatomic, readonly) UIColor *lightBackgroundColor
-
-    /// 背景色 深色模式 rgb 30
-    @property (class, nonatomic, readonly) UIColor *darkBackgroundColor
-
-    /// 高亮背景色 浅色模式 rgb 229
-    @property (class, nonatomic, readonly) UIColor *highlightedLightBackgroundColor
-
-    /// 高亮背景色 深色模式 rgb 37.5
-    @property (class, nonatomic, readonly) UIColor *highlightedDarkBackgroundColor
-
-    /// 全局分隔线粗细 1.0 / [UIScreen mainScreen].scale
-    @property (class, nonatomic, readonly) CGFloat separatorLineThickness
-
-    /// 全局分隔线背景色 浅色模式 rgb 217
-    @property (class, nonatomic, readonly) UIColor *separatorLineLightColor
-
-    /// 全局分隔线背景色 深色模式 rgb 53
-    @property (class, nonatomic, readonly) UIColor *separatorLineDarkColor
-
-    /// 是否X设备
-    @property (class, nonatomic, readonly) BOOL isDeviceX
-
-    /// 是否iPad
-    @property (class, nonatomic, readonly) BOOL isDeviceiPad
-
-    /// 当前是否横屏
-    @property (class, nonatomic, readonly) BOOL isLandscape
-
-    /// 当前HomeIndicator高度
-    @property (class, nonatomic, readonly) CGFloat currentHomeIndicatorHeight
-
-    /// keyWindow
-    @property (class, nonatomic, readonly) UIWindow *keyWindow
-
-    /// 获取keyWindow的safeAreaInsets
-    @property (class, nonatomic, readonly) UIEdgeInsets safeAreaInset
-
-    /// 导航条高度
-    @property (class, nonatomic, readonly) CGFloat navigationBarHeight
-
-    /// 目前iPhone屏幕最大宽度
-    @property (class, nonatomic, readonly) CGFloat iPhoneMaxScreenWidth
-
-    /// 让手机振动一下
-    + (void)vibrateDevice
-
-    /// 仅DEBUG下执行
-    + (void)debugExecute:(void (^)(void))executeBlock
-
-    /// 在DEBUG/Develop下执行
-    + (void)debugDevelopExecute:(void (^)(void))executeBlock
-
-    /// 弹框展示debug信息
-    + (void)showDebugAlertWithTitle:(NSString *)title
-                            message:(NSString *)message
-                              delay:(NSTimeInterval)delay
-
-    /// 弹框展示debug信息
-    + (void)showDebugDevelopAlertWithTitle:(NSString *)title
-                                   message:(NSString *)message
-                                     delay:(NSTimeInterval)delay
-    
-     // */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+     /// 仅DEBUG下执行
+     + (void)debugExecute:(void (^)(void))executeBlock {
+     #if defined(DEBUG)
+     !executeBlock ? : executeBlock()
+     #endif
+     }
+     
+     /// 在DEBUG/Develop下执行
+     + (void)debugDevelopExecute:(void (^)(void))executeBlock {
+     #if defined(DEBUG) || defined(CONFIGURATION_Develop)
+     !executeBlock ? : executeBlock()
+     #endif
+     }
+     
+     /// 弹框展示debug信息
+     + (void)showDebugAlertWithTitle:(NSString *)title
+     message:(NSString *)message
+     delay:(NSTimeInterval)delay {
+     #if defined(DEBUG)
+     [self _showAlertWithTitle:title message:message delay:delay]
+     #endif
+     }
+     
+     /// 弹框展示debug信息
+     + (void)showDebugDevelopAlertWithTitle:(NSString *)title
+     message:(NSString *)message
+     delay:(NSTimeInterval)delay {
+     #if defined(DEBUG) || defined(CONFIGURATION_Develop)
+     [self _showAlertWithTitle:title message:message delay:delay]
+     #endif
+     }
+     
+     + (void)_showAlertWithTitle:(NSString *)title
+     message:(NSString *)message
+     delay:(NSTimeInterval)delay {
+     
+     dispatch_async(dispatch_get_main_queue(), ^{
+     
+     JKAlertView *alertView = [JKAlertView alertViewWithTitle:[@"JKDebug-" stringByAppendingString:(title ? title : @"")] message:[@"--- 此弹框仅用于调试 ---\n\n" stringByAppendingString:(message ? message : @"")] style:(JKAlertStyleAlert)]
+     
+     alertView.makeMessageAlignment(NSTextAlignmentLeft)
+     .makeTitleMessageShouldSelectText(YES)
+     .makePlainWidth([UIScreen mainScreen].bounds.size.width - 30.0)
+     .makeHudAutoReduceWidth(YES)
+     
+     [alertView addAction:[JKAlertAction actionWithTitle:@"Copy" style:(JKAlertActionStyleDefault) handler:^(JKAlertAction *action) {
+     
+     [UIPasteboard generalPasteboard].string = message
+     }]]
+     
+     [alertView addAction:[JKAlertAction actionWithTitle:@"OK" style:(JKAlertActionStyleDefault) handler:^(JKAlertAction *action) {
+     
+     }]]
+     
+     if (delay <= 0) {
+     
+     [alertView show]
+     
+     return
+     }
+     
+     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+     
+     [alertView show]
+     })
+     })
+     } // */
 }
