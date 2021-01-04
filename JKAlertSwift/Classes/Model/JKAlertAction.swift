@@ -16,7 +16,7 @@ class JKAlertAction: NSObject {
     public private(set) var attributedTitle: NSAttributedString?
     
     /// <#注释#>
-    public private(set) var style: JKAlertActionStyle = .defaultBlack
+    public private(set) var style: JKAlertActionStyle = .default
     
     /// <#注释#>
     public private(set) var handler: ((_ action: JKAlertAction) -> Void)?
@@ -69,7 +69,7 @@ extension JKAlertAction {
          * 默认样式
          * 默认黑色字体 RGB都为51
          */
-        case defaultBlack = 0
+        case `default` = 0
         
         /** 红色字体 */
         case destructive = 1

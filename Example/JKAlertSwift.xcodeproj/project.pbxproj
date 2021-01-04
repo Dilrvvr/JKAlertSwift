@@ -32,6 +32,7 @@
 		50DA0209259B363800EFF321 /* JKAlertPlainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA0208259B363800EFF321 /* JKAlertPlainContentView.swift */; };
 		50DA0339259DC27F00EFF321 /* JKAlertThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA0338259DC27F00EFF321 /* JKAlertThemeManager.swift */; };
 		50DA0341259DC47000EFF321 /* JKAlertThemeUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA0340259DC47000EFF321 /* JKAlertThemeUtility.swift */; };
+		50DA0346259DCB4200EFF321 /* JKAlertBaseTextContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA0345259DCB4200EFF321 /* JKAlertBaseTextContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		50DA0208259B363800EFF321 /* JKAlertPlainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertPlainContentView.swift; sourceTree = "<group>"; };
 		50DA0338259DC27F00EFF321 /* JKAlertThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertThemeManager.swift; sourceTree = "<group>"; };
 		50DA0340259DC47000EFF321 /* JKAlertThemeUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertThemeUtility.swift; sourceTree = "<group>"; };
+		50DA0345259DCB4200EFF321 /* JKAlertBaseTextContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAlertBaseTextContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				5097D5C525590FC700B00C98 /* JKAlertBaseView.swift */,
 				50DA01EF259ADBE300EFF321 /* JKAlertBaseScrollContentView.swift */,
 				50DA01F9259B2C2900EFF321 /* JKAlertBaseAlertContentView.swift */,
+				50DA0345259DCB4200EFF321 /* JKAlertBaseTextContentView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				50DA01F5259AE02700EFF321 /* JKAlertScrollContentView.swift in Sources */,
 				50DA01F0259ADBE300EFF321 /* JKAlertBaseScrollContentView.swift in Sources */,
 				505C8A742559619F0071B704 /* JKAlertTextContainerView.swift in Sources */,
+				50DA0346259DCB4200EFF321 /* JKAlertBaseTextContentView.swift in Sources */,
 				5097D5CF25590FC800B00C98 /* JKAlertBaseAlertView.swift in Sources */,
 				50DA01FA259B2C2900EFF321 /* JKAlertBaseAlertContentView.swift in Sources */,
 				5097D5CD25590FC800B00C98 /* JKAlertTextView.swift in Sources */,
