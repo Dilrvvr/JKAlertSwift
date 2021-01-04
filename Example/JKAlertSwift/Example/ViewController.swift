@@ -9,12 +9,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    weak var alertView: JKAlertView?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.orange
+        let _ = JKAlertThemeManager.shared
+        
+        if #available(iOS 13.0, *) {
+            
+            view.backgroundColor = UIColor.systemBackground
+            
+        } else {
+            
+            view.backgroundColor = .white
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -23,8 +30,6 @@ class ViewController: UIViewController {
         let alertView = JKAlertView.alertView(title: "123", message: "12", style: .plain)
         
         alertView.show()
-        
-        self.alertView = alertView
     }
     
     override func didReceiveMemoryWarning() {

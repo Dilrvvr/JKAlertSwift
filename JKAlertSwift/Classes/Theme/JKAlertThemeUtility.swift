@@ -16,11 +16,11 @@ public let JKAlertDefaultThemeLight = "JKAlertDefaultThemeLight"
 /** 深色主题名称 */
 public let JKAlertDefaultThemeDark = "JKAlertDefaultThemeDark";
 
-/** 系统深色/浅色样式改变的通知 */
-public let JKAlertThemeDidChangeNotification = "JKAlertThemeDidChangeNotification";
+/** 主题名称改变的通知 */
+public let JKAlertThemeDidChangeNotification: NSNotification.Name = NSNotification.Name(rawValue: "JKAlertThemeDidChangeNotification")
 
 /** ThemeStyle改变的通知 */
-public let JKAlertThemeStyleDidChangeNotification = "JKAlertThemeStyleDidChangeNotification";
+public let JKAlertThemeStyleDidChangeNotification: NSNotification.Name = Notification.Name(rawValue: "JKAlertThemeStyleDidChangeNotification")
 
 /** 默认的背景色handlerKey */
 public let JKAlertThemeBackgroundColorHandlerKey = "backgroundColor";

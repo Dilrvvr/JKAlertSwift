@@ -94,7 +94,7 @@ class JKAlertBaseAlertContentView: JKAlertBaseView {
     /// 默认的取消action，不需要自带的可以自己设置，不可置为nil
     public lazy var cancelAction: JKAlertAction = {
         
-        let cancelAction = JKAlertAction.action(title: "取消", style: .defaultBlack) { (action: JKAlertAction) in
+        let cancelAction = JKAlertAction.action(title: "取消", style: .default) { (action: JKAlertAction) in
             
         }
         

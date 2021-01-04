@@ -15,7 +15,21 @@ class JKAlertThemeManager: NSObject {
     // MARK: - Public Property
     
     /** themeStyle */
-    public var themeStyle: JKAlertThemeStyle = .system
+    public var themeStyle: JKAlertThemeStyle = .system {
+        
+        didSet {
+            
+            if themeStyle == oldValue { return }
+            
+            postThemeStyleDidChangeNotification()
+        }
+    }
+    
+    /// <#注释#>
+    private func postThemeStyleDidChangeNotification() {
+        
+        NotificationCenter.default.post(name: JKAlertThemeStyleDidChangeNotification, object: themeStyle)
+    }
     
     /// 是否自动切换 深色/浅色 模式
     @available(iOS 13.0, *)
@@ -89,12 +103,18 @@ class JKAlertThemeManager: NSObject {
     
     private override init() {
         super.init()
+        
+        JKAlertThemeUtility.keyWindow?.addSubview(JKAlertThemeView.shared)
     }
     
     // MARK:
     // MARK: - Private Methods
     
-    
+    /// 监听系统模式变化
+    @available(iOS 13.0, *)
+    fileprivate func userInterfaceStyleDidChange(style: UIUserInterfaceStyle) {
+       
+    }
     
     // MARK:
     // MARK: - Private Selector
@@ -110,4 +130,38 @@ class JKAlertThemeManager: NSObject {
     
     
     
+}
+
+fileprivate class JKAlertThemeView: UIView {
+    
+    static let shared: JKAlertThemeView = {
+        
+        let sharedView = JKAlertThemeView(frame: UIScreen.main.bounds)
+        
+        sharedView.isUserInteractionEnabled = false
+        //sharedView.windowLevel = (.alert + 1.0)
+        sharedView.isHidden = false
+        sharedView.isOpaque = false
+        sharedView.backgroundColor = .clear
+        sharedView.layer.backgroundColor = UIColor.clear.cgColor
+        
+        //sharedView.rootViewController = UIViewController()
+        
+        return sharedView
+    }()
+    
+    // MARK:
+    // MARK: - Override
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if #available(iOS 13.0, *) {
+            
+            if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+                
+                JKAlertThemeManager.shared.userInterfaceStyleDidChange(style: traitCollection.userInterfaceStyle)
+            }
+        }
+    }
 }
