@@ -104,7 +104,7 @@ class JKAlertThemeManager: NSObject {
     private override init() {
         super.init()
         
-        JKAlertThemeUtility.keyWindow?.addSubview(JKAlertThemeView.shared)
+        let _ = JKAlertThemeWindow.shared
     }
     
     // MARK:
@@ -129,25 +129,24 @@ class JKAlertThemeManager: NSObject {
     
     
     
-    
 }
 
-fileprivate class JKAlertThemeView: UIView {
+fileprivate class JKAlertThemeWindow: UIWindow {
     
-    static let shared: JKAlertThemeView = {
+    static let shared: JKAlertThemeWindow = {
         
-        let sharedView = JKAlertThemeView(frame: UIScreen.main.bounds)
+        let shared = JKAlertThemeWindow(frame: UIScreen.main.bounds)
         
-        sharedView.isUserInteractionEnabled = false
-        //sharedView.windowLevel = (.alert + 1.0)
-        sharedView.isHidden = false
-        sharedView.isOpaque = false
-        sharedView.backgroundColor = .clear
-        sharedView.layer.backgroundColor = UIColor.clear.cgColor
+        shared.isUserInteractionEnabled = false
+        shared.windowLevel = (.alert + 1.0)
+        shared.isHidden = false
+        shared.isOpaque = false
+        shared.backgroundColor = UIColor.red.withAlphaComponent(0.5)//.clear
+//        shared.layer.backgroundColor = UIColor.clear.cgColor
         
-        //sharedView.rootViewController = UIViewController()
+        shared.rootViewController = JKAlertThemeWindowRoomViewController()
         
-        return sharedView
+        return shared
     }()
     
     // MARK:
@@ -163,5 +162,18 @@ fileprivate class JKAlertThemeView: UIView {
                 JKAlertThemeManager.shared.userInterfaceStyleDidChange(style: traitCollection.userInterfaceStyle)
             }
         }
+    }
+}
+
+fileprivate class JKAlertThemeWindowRoomViewController: UIViewController {
+    
+    override var shouldAutorotate: Bool {
+        
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        
+        return .portrait
     }
 }
